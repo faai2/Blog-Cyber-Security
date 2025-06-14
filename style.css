@@ -1,63 +1,373 @@
 body {
-    font-family: "Times New Roman", serif;
+    font-family: "Times New Roman", serif; /* Tetap Times New Roman */
     background-color: white;
     color: black;
     margin: 0;
     padding: 0 15px;
-  }
-  
-  header {
+}
+
+header {
     background: none;
     color: black;
     text-align: left;
     padding: 10px 0;
     border-bottom: 1px solid gray;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     font-size: 28px;
     margin: 0;
-  }
-  
-  nav {
+}
+
+nav {
     font-size: 14px;
     margin-top: 5px;
-  }
-  
-  nav a {
+}
+
+nav a {
     color: #0000EE; /* Warna biru link khas */
     text-decoration: underline;
     margin-right: 10px;
-  }
-  
-  main {
+}
+
+main {
     margin-top: 20px;
-  }
-  
-  article {
+}
+
+article { /* Ini selector untuk index.html */
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px dotted gray;
-  }
-  
-  article h2 {
+}
+
+article h2 { /* Ini selector untuk index.html */
     font-size: 18px;
     margin-bottom: 5px;
-  }
-  
-  article a {
+}
+
+article a { /* Ini selector untuk index.html */
     color: #0000EE;
     text-decoration: underline;
-  }
-  
-  footer {
+}
+
+footer {
     font-size: 12px;
     margin-top: 40px;
     padding-top: 10px;
     border-top: 1px solid gray;
-  }
+}
 
-  article h2 a {
+article h2 a { /* Ini selector untuk index.html */
     text-decoration: none;
     color: #0000EE;
-  }
+}
+
+/* --- BASE STYLES --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Background yang lebih mencolok dengan gradien utama dan pola geometris */
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%); /* Gradien hijau cerah yang lebih mencolok */
+    background-size: cover; /* Pastikan gradien menutupi seluruh area */
+    background-attachment: fixed; /* Membuat background tetap saat scroll */
+
+    /* Tambahan overlay pola geometris */
+    background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+    background-size: 40px 40px; /* Ukuran pola */
+    background-position: 0 0, 0 40px, 40px -40px, -40px 0px; /* Posisi pola agar berulang */
+
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent body from scrolling */
+    position: relative; /* Penting untuk z-index elemen lain */
+    z-index: 1; /* Pastikan body di atas elemen yang mungkin berada di belakang */
+}
+
+
+/* --- HEADER --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar background terlihat */
+    color: #222;
+    text-align: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0 0 5px 0;
+    color: #4CAF50;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* --- NAVIGATION --- */
+nav {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+nav a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* --- MAIN CONTENT AREA --- */
+main {
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.98); /* Lebih solid agar konten jelas */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Bayangan sedikit lebih kuat */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: auto;
+    height: auto;
+    align-self: center;
+    z-index: 5;
+}
+
+main p {
+    margin-bottom: 1em;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+main h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 6px;
+}
+
+main ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+main ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95em;
+}
+
+main ul li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-size: 0.9em;
+}
+
+/* --- ARTICLE STYLES (for index.html) --- */
+article {
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+article h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+article h2 a {
+    text-decoration: none;
+    color: #337ab7;
+    transition: color 0.3s ease;
+}
+
+article h2 a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+/* --- SPECIFIC POST ELEMENTS (Judol Post) --- */
+
+.danger-zone {
+    background-color: #ffe0b2;
+    color: #e65100;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #ffcc80;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(255,160,0,0.15);
+    font-size: 0.95em;
+}
+
+.warning-icon {
+    font-size: 2em;
+    margin-right: 12px;
+    vertical-align: middle;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.section h2 {
+    font-size: 1.4em;
+    color: #D32F2F;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.section h2::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.section:nth-of-type(1) h2::before {
+    content: '💸';
+}
+.section:nth-of-type(2) h2::before {
+    content: '🧠';
+}
+.section:nth-of-type(3) h2::before {
+    content: '👥';
+}
+.section:nth-of-type(4) h2::before {
+    content: '🚨';
+}
+
+
+.action-needed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border: 1px solid #a5d6a7;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(76,175,80,0.15);
+}
+
+.action-needed strong {
+    color: #1b5e20;
+}
+
+/* --- FOOTER --- */
+footer {
+    font-size: 0.75em;
+    padding: 10px 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    color: #777;
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    margin-top: auto;
+    z-index: 10;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    main {
+        margin: 15px;
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.6em;
+    }
+    nav a {
+        margin: 0 5px;
+    }
+    .section h2 {
+        font-size: 1.2em;
+    }
+    .danger-zone, .action-needed {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    .warning-icon {
+        font-size: 1.8em;
+    }
+    body {
+        background-image: none; /* Hapus pola di tablet untuk kesederhanaan */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.3em;
+    }
+    nav a {
+        display: block;
+        margin: 5px auto;
+        font-size: 0.8em;
+    }
+    main {
+        padding: 10px;
+    }
+    main p {
+        font-size: 0.9em;
+    }
+    main ul li {
+        font-size: 0.85em;
+    }
+    .section h2 {
+        font-size: 1.1em;
+    }
+    .danger-zone, .action-needed {
+        font-size: 0.85em;
+        margin-bottom: 5px;
+    }
+    body {
+        background-image: none; /* Hapus pola di mobile */
+    }
+}
